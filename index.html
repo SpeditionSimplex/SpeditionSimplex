@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0e0f">
+  <meta name="description" content="Spedition Simplex GmbH – Schwertransporte, Gefahrguttransporte und Sondertransporte europaweit. Simpel und Komplex.">
+  <title>Simplex GmbH – Simpel und Komplex</title>
+  <style>
+    :root {
+      --bg: #0a0d0f;
+      --panel: #111619;
+      --panel-soft: #171d20;
+      --gold: #ffc400;
+      --gold-deep: #e6a900;
+      --paper: #f4f2eb;
+      --ink: #111517;
+      --muted: #aeb6b8;
+      --line: rgba(255,255,255,.13);
+      --max: 1200px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0; background: var(--bg); color: #f7f7f4;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { color: var(--gold); font-size: .78rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
+    .section-title { margin: .35rem 0 1rem; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.04; letter-spacing: -.045em; }
+    .section-intro { color: #c3c9c9; max-width: 620px; }
+    .gold-line { width: 56px; height: 4px; background: var(--gold); margin: 1.25rem 0; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 14px;
+      background: var(--gold); color: #101314; padding: 14px 20px;
+      font-size: .88rem; font-weight: 900; text-transform: uppercase; letter-spacing: .04em;
+      border: 0; border-radius: 3px; transition: transform .2s, background .2s;
+    }
+    .btn:hover { background: #ffd43d; transform: translateY(-2px); }
+    .btn .arrow { font-size: 1.25rem; line-height: 1; }
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 20; background: rgba(8,11,12,.94);
+      border-bottom: 1px solid rgba(255,196,0,.25); backdrop-filter: blur(14px);
+    }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .brand-mark { color: var(--gold); font-size: 3rem; font-weight: 1000; font-style: italic; line-height: .8; letter-spacing: -.12em; transform: skew(-12deg); }
+    .brand-name { font-size: 1.45rem; font-weight: 950; line-height: 1; letter-spacing: .04em; }
+    .brand-sub { display: block; margin-top: 5px; color: #cbd0d0; font-size: .58rem; font-weight: 700; letter-spacing: .28em; text-align: right; }
+    .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 34px); }
+    .nav-links a { font-size: .76rem; text-transform: uppercase; font-weight: 800; color: #e5e8e7; letter-spacing: .06em; }
+    .nav-links a:hover { color: var(--gold); }
+    .menu-toggle { display: none; background: transparent; color: white; border: 1px solid var(--line); padding: 8px 10px; border-radius: 3px; font-size: 1.2rem; }
+    /* Hero */
+    .hero {
+      min-height: 610px; display: flex; align-items: center; position: relative; overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(6,9,10,.98) 0%, rgba(6,9,10,.91) 29%, rgba(6,9,10,.43) 53%, rgba(6,9,10,.08) 100%),
+        linear-gradient(0deg, rgba(6,9,10,.5), transparent 35%),
+        url("assets/hero-truck.jpg") center 55% / cover no-repeat,
+        #171d20;
+    }
+    .hero::before { content: ""; position: absolute; top: -15%; bottom: -15%; left: 40%; width: 7%; background: rgba(255,196,0,.85); transform: skew(-22deg); opacity: .85; mix-blend-mode: multiply; }
+    .hero-content { position: relative; z-index: 1; padding: 90px 0 100px; max-width: 570px; }
+    .hero-kicker { color: var(--gold); font-weight: 900; letter-spacing: .32em; text-transform: uppercase; font-size: .82rem; }
+    .hero h1 { font-size: clamp(3.8rem, 9vw, 7.2rem); letter-spacing: -.075em; line-height: .88; margin: 16px 0 18px; font-weight: 1000; }
+    .hero h1 span { color: var(--gold); }
+    .hero-slogan { font-size: clamp(1.25rem, 2.6vw, 1.8rem); font-weight: 650; margin: 0 0 20px; }
+    .hero-copy { max-width: 450px; color: #d5d9d8; margin-bottom: 28px; }
+    .hero-stats { display: flex; gap: 24px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--line); max-width: 470px; }
+    .hero-stat strong { display: block; color: var(--gold); font-size: 1.2rem; }
+    .hero-stat span { color: #d1d6d5; font-size: .76rem; }
+    /* Services */
+    .services { background: var(--paper); color: var(--ink); padding: 88px 0; }
+    .services .section-intro { color: #4c5556; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 42px; }
+    .service-card { min-height: 230px; padding: 28px; background: white; border-top: 4px solid var(--gold); box-shadow: 0 10px 30px rgba(14,20,22,.06); }
+    .service-icon { width: 54px; height: 54px; display: grid; place-items: center; color: #101314; background: var(--gold); border-radius: 50%; font-size: 1.5rem; font-weight: 900; }
+    .service-card h3 { margin: 22px 0 8px; font-size: 1.25rem; }
+    .service-card p { color: #51595a; margin: 0; }
+    .service-card.featured { background: var(--bg); color: white; }
+    .service-card.featured p { color: #c1c8c8; }
+    .service-card.featured .service-icon { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+    .service-note { display: flex; align-items: center; gap: 12px; margin-top: 28px; font-weight: 850; text-transform: uppercase; letter-spacing: .04em; }
+    .service-note span { color: var(--gold-deep); font-size: 1.8rem; }
+    /* Customers */
+    .customers { padding: 90px 0; position: relative; overflow: hidden; background: linear-gradient(115deg, #0b0f11 0%, #111719 65%, #161b1d 100%); }
+    .customers::after { content: "EUROPA"; position: absolute; right: -20px; bottom: -70px; font-size: clamp(7rem, 19vw, 17rem); font-weight: 1000; letter-spacing: -.08em; color: rgba(255,255,255,.025); pointer-events: none; }
+    .customer-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; position: relative; z-index: 1; }
+    .customer-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .customer-item { display: flex; align-items: center; gap: 14px; padding: 19px 16px; border: 1px solid var(--line); background: rgba(255,255,255,.025); }
+    .customer-item .symbol { color: var(--gold); font-size: 1.5rem; width: 34px; text-align: center; }
+    .customer-item strong { font-size: .96rem; }
+    .coverage-card { min-height: 285px; border: 1px solid rgba(255,196,0,.4); padding: 32px; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(135deg, rgba(255,196,0,.09), transparent 65%); }
+    .coverage-top { display: flex; align-items: center; gap: 12px; color: var(--gold); font-size: .82rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .coverage-card h3 { font-size: clamp(2.2rem, 5vw, 4rem); margin: 20px 0 8px; letter-spacing: -.06em; }
+    .coverage-card p { color: #c2c9c9; margin: 0; max-width: 340px; }
+    .coverage-bottom { display: flex; gap: 8px; align-items: center; margin-top: 30px; color: var(--gold); font-weight: 850; }
+    /* Strengths */
+    .strengths { background: #f3f1e9; color: #101516; padding: 88px 0; }
+    .strengths .section-intro { color: #505859; }
+    .strength-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 44px; border-top: 1px solid #d8d5cb; border-bottom: 1px solid #d8d5cb; }
+    .strength-card { padding: 28px 22px 30px 0; margin-right: 22px; border-right: 1px solid #d8d5cb; }
+    .strength-card:last-child { border-right: 0; margin-right: 0; }
+    .strength-icon { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--gold); font-size: 1.5rem; margin-bottom: 20px; }
+    .strength-card h3 { font-size: 1.08rem; margin: 0 0 9px; }
+    .strength-card p { margin: 0; color: #535c5d; font-size: .92rem; }
+    .diversity-strip { margin-top: 26px; background: #111719; color: white; padding: 22px 26px; display: flex; align-items: center; gap: 18px; }
+    .diversity-strip .star { color: var(--gold); font-size: 1.8rem; }
+    .diversity-strip p { margin: 0; }
+    .diversity-strip strong { color: var(--gold); }
+    /* Location / contact */
+    .location { padding: 80px 0; background: #0c1012; }
+    .location-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: stretch; }
+    .location-copy { padding: 24px 0; }
+    .location-line { display: flex; align-items: center; gap: 14px; font-size: 1.25rem; font-weight: 800; margin: 25px 0 12px; }
+    .pin { color: var(--gold); font-size: 2rem; }
+    .location-copy p { color: #bfc7c7; max-width: 460px; }
+    .location-visual { min-height: 300px; position: relative; overflow: hidden; background: linear-gradient(130deg, rgba(255,196,0,.12), transparent 50%), repeating-linear-gradient(45deg, #151c1f 0 1px, transparent 1px 25px); border: 1px solid var(--line); display: grid; place-items: center; }
+    .location-visual::before, .location-visual::after { content: ""; position: absolute; border: 1px solid rgba(255,196,0,.28); border-radius: 50%; width: 260px; height: 260px; }
+    .location-visual::after { width: 170px; height: 170px; }
+    .location-visual .big-pin { position: relative; z-index: 1; color: var(--gold); font-size: 4.5rem; text-align: center; }
+    .location-visual .big-pin small { display: block; color: white; font-size: 1rem; letter-spacing: .22em; font-weight: 900; }
+    .contact-bar { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
+    .contact-bar span { color: #c3caca; font-size: .9rem; }
+    .contact-bar strong { color: var(--gold); }
+    footer { padding: 28px 0; background: #060809; border-top: 1px solid rgba(255,196,0,.45); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .footer-note { color: #8f999a; font-size: .78rem; }
+    .footer-slogan { color: var(--gold); letter-spacing: .16em; font-weight: 850; }
+    @media (max-width: 850px) {
+      .nav { min-height: 70px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 70px; left: 0; right: 0; background: #090c0d; padding: 18px 24px 24px; border-bottom: 1px solid rgba(255,196,0,.3); flex-direction: column; align-items: flex-start; }
+      .nav-links.open { display: flex; }
+      .hero { min-height: 580px; background-position: 58% center; }
+      .hero-content { padding: 78px 0; }
+      .hero::before { left: 57%; }
+      .customer-layout, .location-grid { grid-template-columns: 1fr; gap: 35px; }
+      .coverage-card { min-height: 230px; }
+      .strength-grid { grid-template-columns: repeat(2, 1fr); }
+      .strength-card:nth-child(2) { border-right: 0; }
+      .strength-card:nth-child(3), .strength-card:nth-child(4) { border-top: 1px solid #d8d5cb; }
+      .strength-card:nth-child(3) { padding-left: 0; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 32px, var(--max)); }
+      .brand-mark { font-size: 2.55rem; }
+      .brand-name { font-size: 1.2rem; }
+      .hero { min-height: 620px; background-image: linear-gradient(90deg, rgba(6,9,10,.97), rgba(6,9,10,.72)), url("assets/hero-truck.jpg"); background-position: 60% center; }
+      .hero::before { display: none; }
+      .hero h1 { font-size: clamp(3.5rem, 18vw, 5.5rem); }
+      .hero-stats { gap: 16px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: unset; }
+      .customer-list { grid-template-columns: 1fr; }
+      .services, .customers, .strengths { padding: 64px 0; }
+      .strength-grid { grid-template-columns: 1fr; }
+      .strength-card, .strength-card:nth-child(2), .strength-card:nth-child(3), .strength-card:nth-child(4) { margin: 0; padding: 24px 0; border-right: 0; border-top: 1px solid #d8d5cb; }
+      .strength-card:first-child { border-top: 0; }
+      .diversity-strip { align-items: flex-start; }
+      .location { padding: 60px 0; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .contact-bar { flex-direction: column; align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#start" aria-label="Simplex Startseite">
+        <span class="brand-mark">S</span>
+        <span><span class="brand-name">SIMPLEX</span><span class="brand-sub">GmbH</span></span>
+      </a>
+      <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">☰</button>
+      <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
+        <a href="#start">Start</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#kunden">Kunden</a>
+        <a href="#staerken">Stärken</a>
+        <a href="#standort">Standort</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="start">
+      <div class="wrap">
+        <div class="hero-content">
+          <div class="hero-kicker">Spedition · Europaweit</div>
+          <h1><span>SIMPLEX</span></h1>
+          <p class="hero-slogan">Simpel und Komplex.</p>
+          <p class="hero-copy">Wir bewegen, was andere nicht einfach bewegen können. Ob Schwertransport, Gefahrgut oder individuelle Sonderlösung – wir denken mit und finden einen Weg ans Ziel.</p>
+          <a class="btn" href="#leistungen">Unsere Leistungen <span class="arrow">→</span></a>
+          <div class="hero-stats">
+            <div class="hero-stat"><strong>Europaweit</strong><span>im Einsatz</span></div>
+            <div class="hero-stat"><strong>Flexibel</strong><span>für besondere Aufgaben</span></div>
+            <div class="hero-stat"><strong>Eine Lösung</strong><span>für jede Herausforderung</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="leistungen">
+      <div class="wrap">
+        <div class="eyebrow">Was bieten wir an?</div>
+        <h2 class="section-title">Unsere Leistungen</h2>
+        <div class="gold-line"></div>
+        <p class="section-intro">Von außergewöhnlichen Abmessungen bis zu anspruchsvollen Transportgütern: Wir planen Transporte mit Sorgfalt, Weitblick und dem passenden Equipment.</p>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">↗</div>
+            <h3>Schwertransporte</h3>
+            <p>Für besonders schwere, große und sperrige Güter – individuell geplant und zuverlässig umgesetzt.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">⚠</div>
+            <h3>Gefahrguttransporte</h3>
+            <p>Verantwortungsvolle Planung und Durchführung unter Beachtung der jeweils geltenden Vorschriften.</p>
+          </article>
+          <article class="service-card featured">
+            <div class="service-icon" aria-hidden="true">✦</div>
+            <h3>Sondertransporte</h3>
+            <p>Wenn Standardlösungen nicht reichen, entwickeln wir einen Transportweg, der zur Aufgabe passt.</p>
+          </article>
+        </div>
+        <div class="service-note"><span>→</span> Komplexe Aufgabe. Klare Lösung.</div>
+      </div>
+    </section>
+
+    <section class="customers" id="kunden">
+      <div class="wrap customer-layout">
+        <div>
+          <div class="eyebrow">Wer sind unsere Kunden?</div>
+          <h2 class="section-title">Für Branchen, die<br>in Bewegung bleiben.</h2>
+          <div class="gold-line"></div>
+          <p class="section-intro">Wir unterstützen Unternehmen und Privatkunden bei besonderen Transportanforderungen – vom industriellen Projekt bis zur individuellen Herausforderung.</p>
+          <div class="customer-list">
+            <div class="customer-item"><span class="symbol" aria-hidden="true">⚗</span><strong>Chemiekonzerne</strong></div>
+            <div class="customer-item"><span class="symbol" aria-hidden="true">⚙</span><strong>Landmaschinenhersteller</strong></div>
+            <div class="customer-item"><span class="symbol" aria-hidden="true">⌂</span><strong>Privatkunden</strong></div>
+            <div class="customer-item"><span class="symbol" aria-hidden="true">↗</span><strong>Projektpartner</strong></div>
+          </div>
+        </div>
+        <aside class="coverage-card">
+          <div class="coverage-top"><span aria-hidden="true">◎</span> Unser Einsatzgebiet</div>
+          <div>
+            <h3>Grenzenlos<br>unterwegs.</h3>
+            <p>Von Köln aus denken wir über Grenzen hinaus und realisieren Transporte europaweit.</p>
+          </div>
+          <div class="coverage-bottom">EUROPAWEIT <span aria-hidden="true">⟶</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="strengths" id="staerken">
+      <div class="wrap">
+        <div class="eyebrow">Was macht uns besonders?</div>
+        <h2 class="section-title">Unsere Stärken</h2>
+        <div class="gold-line"></div>
+        <p class="section-intro">Wir verbinden moderne Technik mit Flexibilität und einem Team, das unterschiedliche Perspektiven als Stärke versteht.</p>
+        <div class="strength-grid">
+          <article class="strength-card">
+            <div class="strength-icon" aria-hidden="true">✦</div>
+            <h3>Verschiedenste Transporte</h3>
+            <p>Wir finden für jede Herausforderung eine passende Lösung – auch wenn es kompliziert wird.</p>
+          </article>
+          <article class="strength-card">
+            <div class="strength-icon" aria-hidden="true">▰</div>
+            <h3>Großer Fuhrpark</h3>
+            <p>Moderne LKWs und vielseitige Transportmöglichkeiten für unterschiedliche Anforderungen.</p>
+          </article>
+          <article class="strength-card">
+            <div class="strength-icon" aria-hidden="true">ϟ</div>
+            <h3>Kleine E-Fahrzeugflotte</h3>
+            <p>Mit einer kleinen Flotte elektrischer Fahrzeuge gehen wir weitere Schritte in Richtung Zukunft.</p>
+          </article>
+          <article class="strength-card">
+            <div class="strength-icon" aria-hidden="true">◎</div>
+            <h3>Viel Diversität</h3>
+            <p>Verschiedene Menschen, Fähigkeiten und Blickwinkel machen unser Team vielseitig.</p>
+          </article>
+        </div>
+        <div class="diversity-strip"><span class="star" aria-hidden="true">✳</span><p><strong>Simpel und Komplex.</strong> Wir bleiben flexibel, denken lösungsorientiert und geben jeder Transportaufgabe die Aufmerksamkeit, die sie verdient.</p></div>
+      </div>
+    </section>
+
+    <section class="location" id="standort">
+      <div class="wrap location-grid">
+        <div class="location-copy">
+          <div class="eyebrow">Wo befindet sich unser Unternehmen?</div>
+          <h2 class="section-title">Verwurzelt in Köln.<br>Unterwegs in Europa.</h2>
+          <div class="location-line"><span class="pin" aria-hidden="true">●</span> Köln, Deutschland</div>
+          <p>Köln ist unser Standort und Ausgangspunkt für Transporte in ganz Europa. Für konkrete Anfragen stimmen wir die Anforderungen individuell mit Ihnen ab.</p>
+        </div>
+        <div class="location-visual" role="img" aria-label="Abstrakte Standortgrafik mit Köln als Ausgangspunkt">
+          <div class="big-pin">⌖<small>KÖLN · DE</small></div>
+        </div>
+      </div>
+      <div class="wrap" id="kontakt">
+        <div class="contact-bar">
+          <span><strong>SIMPLEX GmbH</strong> · Spedition und Sondertransporte</span>
+          <span><strong>Standort:</strong> Köln</span>
+          <a class="btn" href="mailto:info@spedition-simplex.de">Kontakt aufnehmen <span class="arrow">→</span></a>
+        </div>
+        <p style="color:#899394;font-size:.78rem;margin-top:12px">Hinweis: E-Mail-Adresse und Unternehmensangaben vor Veröffentlichung prüfen und bei Bedarf durch die offiziellen Kontaktdaten ersetzen.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="brand" href="#start">
+        <span class="brand-mark">S</span>
+        <span><span class="brand-name">SIMPLEX</span><span class="brand-sub">GmbH</span></span>
+      </a>
+      <span class="footer-slogan">SIMPEL UND KOMPLEX.</span>
+      <span class="footer-note">© <span id="year"></span> Simplex GmbH · Alle Rechte vorbehalten</span>
+    </div>
+  </footer>
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? '×' : '☰';
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
